@@ -7,10 +7,61 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    
+    <% if flash[:notice]%>
+      <div class="notification global-notification is-success">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    
+    <% if flash[:alert] %>
+      <div class="notification global-notification is-danger">    
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+    <nav class="navbar is-warning">
+      <div class="navbar-brand">
+        <%= link_to root_path, class:"navbar-item" do %>
+          <h1 class="title is-5 dark">Members Only!</h1>
+        <% end %>
+
+        <div class="navbar-burger burger" data-target="navbarExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <% if user_signed_in? %>
+        <div class="navbar-menu navbar-end">
+          <div class="navbar-item">
+           <h1>New Post </h1>
+          </div>
+          <div class="navbar-item">
+           <h1>Profile</h1>
+          </div>
+        </div>
+      <%else%>
+        <div class="navbar-menu navbar-end">
+          
+            <%= link_to 'Login', new_user_session_path, class:"navbar-item"%>
+          
+        
+            <%= link_to 'Sign Up', new_user_registration_path, class:"navbar-item" %>
+          
+        </div>
+      <% end %>
+      </div> 
+    </nav>
+    
+    
     <%= yield %>
+    
   </body>
 </html>

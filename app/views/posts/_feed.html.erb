@@ -1,0 +1,23 @@
+<div class="column is-half">
+
+    <%= render "form" %>
+
+    <% @posts.each do |post| %>
+     <div class="box"> 
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <% if user_signed_in? %>
+              <%= post.user.try(:email) %>
+            <% else %>
+              <h3> Anonymous </h3>
+            <% end %>
+            <br>
+             <strong> <%= post.title %> </strong> <br>
+             <p> <%= post.post %> </p>
+          </div>
+        </div>
+      </article>
+    </div>
+    <%end %>
+</div>

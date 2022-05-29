@@ -1,0 +1,26 @@
+<article class="column"> 
+  <div class="container">
+    <%= simple_form_for @post do |f| %>
+    <% if @post.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <div class="control">
+        <%= f.input :title, autofocus:true, placeholder: "title" %>
+      </div>
+    </div>
+    <div class="field"> 
+      <div class="control">
+        <%= f.input :post %>
+      </div>
+    </div>
+        <%= f.button :submit, class: "button is-warning" %>
+    <% end %>
+  </div>
+</article>
