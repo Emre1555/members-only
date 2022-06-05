@@ -10,17 +10,42 @@
         </ul>
       </div>
     <% end %>
-    <div class="field">
-      <div class="control">
-        <%= f.input :title, autofocus:true, placeholder: "title" %>
+    <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Title</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+
+        <div class="control">
+          <%= f.text_field :title, autofocus:true, label: false, class:"input is-medium" %>
+        </div>
       </div>
     </div>
-    <div class="field"> 
-      <div class="control">
-        <%= f.input :post %>
-      </div>
     </div>
-        <%= f.button :submit, class: "button is-warning" %>
+    <div class="field is-horizontal pt-5">
+      <div class="field-label is-normal"> 
+        <label class="label">Post</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <%= f.text_area :post, label: false, class:"textarea input is-medium" %>
+          </div>
+        </div>
+    </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <!-- Left empty for spacing -->
+      </div>
+       <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <%= f.button :submit, class: "button is-warning mb-5" %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </article>

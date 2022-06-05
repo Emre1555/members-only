@@ -41,20 +41,26 @@
 
       <% if user_signed_in? %>
         <div class="navbar-menu navbar-end">
-          <%= link_to current_user.username, edit_user_registration_path, class:"navbar-item" %>
-          <%= link_to "Logout", destroy_user_session_path, method: :get %>
+          <div class="navbar-item">
+            <%= link_to 'New Post', root_path, class:" button is-dark ml-2"%>
+            <%= link_to current_user.username, edit_user_registration_path, class:"navbar-item ml-2" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :get, class:"navbar-item ml-2" %>
+          </div>
         </div>
       <%else%>
-        <div class="navbar-menu navbar-end">     
+        <div class="navbar-menu navbar-end">
+          <div class="navbar-item">
             <%= link_to 'Login', new_user_session_path, class:"navbar-item"%>
-            <%= link_to 'Sign Up', new_user_registration_path, class:"navbar-item" %>       
+            <%= link_to 'Sign Up', new_user_registration_path, class:"navbar-item" %>
+          </div>       
         </div>
       <% end %>
       </div> 
     </nav>
     
-    
+  <div class="container">
     <%= yield %>
-    
+  </div>
+
   </body>
 </html>
